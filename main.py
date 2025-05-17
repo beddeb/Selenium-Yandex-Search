@@ -65,7 +65,7 @@ def check_links(driver, expected_url, max_links=5):
             try:
                 link = result.find_element(By.CSS_SELECTOR, "a[href]:not([role='button'])")
                 url = link.get_attribute("href")
-                if url:
+                if url and "yabs.yandex.ru" not in url:
                     clean_url = url.split('?')[0].split('#')[0]
                     urls.append(clean_url)
             except:
